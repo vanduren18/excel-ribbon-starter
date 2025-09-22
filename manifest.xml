@@ -12,7 +12,7 @@
 
   <DisplayName DefaultValue="Mijn Excel Ribbon" />
   <Description DefaultValue="Custom ribbon met Connectie, Download, Functie en Help." />
-  <IconUrl DefaultValue="https://REPLACE_ME.your.host/assets/icon-32.png" />
+  <IconUrl DefaultValue="https://vanduren18.github.io/excel-ribbon-starter/assets/icon-32.png" />
   <HighResolutionIconUrl DefaultValue="https://REPLACE_ME.your.host/assets/icon-64.png" />
 
   <Hosts>
@@ -26,7 +26,7 @@
   </Requirements>
 
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://REPLACE_ME.your.host/commands.html"/>
+    <SourceLocation DefaultValue="https://vanduren18.github.io/excel-ribbon-starter/commands.html"/>
   </DefaultSettings>
 
   <Permissions>ReadWriteDocument</Permissions>
@@ -117,14 +117,14 @@
 
     <ov:Resources>
       <ov:bt:Images>
-        <ov:bt:Image id="icon16" DefaultValue="https://REPLACE_ME.your.host/assets/icon-16.png"/>
-        <ov:bt:Image id="icon32" DefaultValue="https://REPLACE_ME.your.host/assets/icon-32.png"/>
-        <ov:bt:Image id="icon64" DefaultValue="https://REPLACE_ME.your.host/assets/icon-64.png"/>
-        <ov:bt:Image id="icon80" DefaultValue="https://REPLACE_ME.your.host/assets/icon-80.png"/>
+        <ov:bt:Image id="icon16" DefaultValue="https://vanduren18.github.io/excel-ribbon-starter/assets/icon-16.png"/>
+        <ov:bt:Image id="icon32" DefaultValue="https://vanduren18.github.io/excel-ribbon-starter/assets/icon-32.png"/>
+        <ov:bt:Image id="icon64" DefaultValue="https://vanduren18.github.io/excel-ribbon-starter/assets/icon-64.png"/>
+        <ov:bt:Image id="icon80" DefaultValue="https://vanduren18.github.io/excel-ribbon-starter/assets/icon-80.png"/>
       </ov:bt:Images>
       <ov:bt:Urls>
-        <ov:bt:Url id="commandsHtml" DefaultValue="https://REPLACE_ME.your.host/commands.html"/>
-        <ov:bt:Url id="taskpaneUrl"   DefaultValue="https://REPLACE_ME.your.host/taskpane.html"/>
+        <ov:bt:Url id="commandsHtml" DefaultValue="https://vanduren18.github.io/excel-ribbon-starter/commands.html"/>
+        <ov:bt:Url id="taskpaneUrl"   DefaultValue="https://vanduren18.github.io/excel-ribbon-starter"/>
       </ov:bt:Urls>
       <ov:bt:ShortStrings>
         <ov:bt:String id="residTabLabel" DefaultValue="Mijn Add-in"/>
