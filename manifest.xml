@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+           xsi:type="Contoso.OfficeAddin"
+           Id="00000000-0000-0000-0000-000000000123"
+           Version="1.0.0.0"
+           ProviderName="JouwOrganisatie"
+           DefaultLocale="nl-NL"
+           xsi:schemaLocation="http://schemas.microsoft.com/office/appforoffice/1.1 OfficeAppManifestv1_1.xsd">
+
+  <DisplayName DefaultValue="Mijn Excel Ribbon" />
+  <Description DefaultValue="Custom ribbon met Connectie, Download, Functie en Help." />
+  <IconUrl DefaultValue="https://REPLACE_ME.your.host/assets/icon-32.png" />
+  <HighResolutionIconUrl DefaultValue="https://REPLACE_ME.your.host/assets/icon-64.png" />
+
+  <Hosts>
+    <Host Name="Workbook"/>
+  </Hosts>
+
+  <Requirements>
+    <Sets DefaultMinVersion="1.1">
+      <Set Name="SharedRuntime" MinVersion="1.1"/>
+    </Sets>
+  </Requirements>
+
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://REPLACE_ME.your.host/commands.html"/>
+  </DefaultSettings>
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <VersionOverrides xsi:type="ov:VersionOverrides" Version="1.1">
+    <ov:Hosts>
+      <ov:Host xsi:type="ov:Workbook">
+        <ov:AllFormFactors>
+          <ov:ExtensionPoint xsi:type="ov:PrimaryCommandSurface">
+            <ov:CustomTab id="Tab.CustomMijnRibbon">
+              <ov:Label resid="residTabLabel" />
+              <ov:Group id="Group.Actions">
+                <ov:Label resid="residGroupLabel" />
+                <ov:Icon>
+                  <ov:bt:Image size="16" resid="icon16" />
+                  <ov:bt:Image size="32" resid="icon32" />
+                  <ov:bt:Image size="80" resid="icon80" />
+                </ov:Icon>
+                <ov:Control xsi:type="ov:Button" id="Btn.Connectie">
+                  <ov:Label resid="residConnectieLabel" />
+                  <ov:Supertip>
+                    <ov:Title resid="residConnectieLabel"/>
+                    <ov:Description resid="residConnectieTip"/>
+                  </ov:Supertip>
+                  <ov:Icon>
+                    <ov:bt:Image size="16" resid="icon16" />
+                    <ov:bt:Image size="32" resid="icon32" />
+                    <ov:bt:Image size="80" resid="icon80" />
+                  </ov:Icon>
+                  <ov:Action xsi:type="ov:ExecuteFunction">
+                    <ov:FunctionName>onConnectie</ov:FunctionName>
+                  </ov:Action>
+                </ov:Control>
+
+                <ov:Control xsi:type="ov:Button" id="Btn.Download">
+                  <ov:Label resid="residDownloadLabel" />
+                  <ov:Supertip>
+                    <ov:Title resid="residDownloadLabel"/>
+                    <ov:Description resid="residDownloadTip"/>
+                  </ov:Supertip>
+                  <ov:Icon>
+                    <ov:bt:Image size="16" resid="icon16" />
+                    <ov:bt:Image size="32" resid="icon32" />
+                    <ov:bt:Image size="80" resid="icon80" />
+                  </ov:Icon>
+                  <ov:Action xsi:type="ov:ExecuteFunction">
+                    <ov:FunctionName>onDownload</ov:FunctionName>
+                  </ov:Action>
+                </ov:Control>
+
+                <ov:Control xsi:type="ov:Button" id="Btn.Functie">
+                  <ov:Label resid="residFunctieLabel" />
+                  <ov:Supertip>
+                    <ov:Title resid="residFunctieLabel"/>
+                    <ov:Description resid="residFunctieTip"/>
+                  </ov:Supertip>
+                  <ov:Icon>
+                    <ov:bt:Image size="16" resid="icon16" />
+                    <ov:bt:Image size="32" resid="icon32" />
+                    <ov:bt:Image size="80" resid="icon80" />
+                  </ov:Icon>
+                  <ov:Action xsi:type="ov:ExecuteFunction">
+                    <ov:FunctionName>onFunctie</ov:FunctionName>
+                  </ov:Action>
+                </ov:Control>
+
+                <ov:Control xsi:type="ov:Button" id="Btn.Help">
+                  <ov:Label resid="residHelpLabel" />
+                  <ov:Supertip>
+                    <ov:Title resid="residHelpLabel"/>
+                    <ov:Description resid="residHelpTip"/>
+                  </ov:Supertip>
+                  <ov:Icon>
+                    <ov:bt:Image size="16" resid="icon16" />
+                    <ov:bt:Image size="32" resid="icon32" />
+                    <ov:bt:Image size="80" resid="icon80" />
+                  </ov:Icon>
+                  <ov:Action xsi:type="ov:ShowTaskpane">
+                    <ov:SourceLocation resid="taskpaneUrl"/>
+                  </ov:Action>
+                </ov:Control>
+              </ov:Group>
+            </ov:CustomTab>
+          </ov:ExtensionPoint>
+        </ov:AllFormFactors>
+      </ov:Host>
+    </ov:Hosts>
+
+    <ov:Resources>
+      <ov:bt:Images>
+        <ov:bt:Image id="icon16" DefaultValue="https://REPLACE_ME.your.host/assets/icon-16.png"/>
+        <ov:bt:Image id="icon32" DefaultValue="https://REPLACE_ME.your.host/assets/icon-32.png"/>
+        <ov:bt:Image id="icon64" DefaultValue="https://REPLACE_ME.your.host/assets/icon-64.png"/>
+        <ov:bt:Image id="icon80" DefaultValue="https://REPLACE_ME.your.host/assets/icon-80.png"/>
+      </ov:bt:Images>
+      <ov:bt:Urls>
+        <ov:bt:Url id="commandsHtml" DefaultValue="https://REPLACE_ME.your.host/commands.html"/>
+        <ov:bt:Url id="taskpaneUrl"   DefaultValue="https://REPLACE_ME.your.host/taskpane.html"/>
+      </ov:bt:Urls>
+      <ov:bt:ShortStrings>
+        <ov:bt:String id="residTabLabel" DefaultValue="Mijn Add-in"/>
+        <ov:bt:String id="residGroupLabel" DefaultValue="Acties"/>
+        <ov:bt:String id="residConnectieLabel" DefaultValue="Connectie"/>
+        <ov:bt:String id="residDownloadLabel" DefaultValue="Download"/>
+        <ov:bt:String id="residFunctieLabel" DefaultValue="Functie"/>
+        <ov:bt:String id="residHelpLabel" DefaultValue="Help"/>
+      </ov:bt:ShortStrings>
+      <ov:bt:LongStrings>
+        <ov:bt:String id="residConnectieTip" DefaultValue="Maak of test een connectie (voorbeeld: API, database)."/>
+        <ov:bt:String id="residDownloadTip" DefaultValue="Voer een downloadactie uit (voorbeeld: data ophalen en in sheet plaatsen)."/>
+        <ov:bt:String id="residFunctieTip" DefaultValue="Draai een voorbeeldfunctie op het huidige werkblad."/>
+        <ov:bt:String id="residHelpTip" DefaultValue="Open het help-venster met uitleg en links."/>
+      </ov:bt:LongStrings>
+    </ov:Resources>
+  </VersionOverrides>
+</OfficeApp>
