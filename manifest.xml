@@ -35,6 +35,7 @@
     <ov:Hosts>
       <ov:Host xsi:type="ov:Workbook">
         <ov:AllFormFactors>
+                   <ov:FunctionFile resid="commandsHtml"/>
           <ov:ExtensionPoint xsi:type="ov:PrimaryCommandSurface">
             <ov:CustomTab id="Tab.CustomMijnRibbon">
               <ov:Label resid="residTabLabel"/>
