@@ -6,14 +6,14 @@
            xsi:type="Contoso.OfficeAddin"
            Id="00000000-0000-0000-0000-000000000123"
            Version="1.0.0.0"
-           ProviderName="JouwOrganisatie"
+           ProviderName="HBSoftware"
            DefaultLocale="nl-NL"
            xsi:schemaLocation="http://schemas.microsoft.com/office/appforoffice/1.1 OfficeAppManifestv1_1.xsd">
 
   <DisplayName DefaultValue="Mijn Excel Ribbon" />
   <Description DefaultValue="Custom ribbon met Connectie, Download, Functie en Help." />
   <IconUrl DefaultValue="https://vanduren18.github.io/excel-ribbon-starter/assets/icon-32.png" />
-  <HighResolutionIconUrl DefaultValue="https://REPLACE_ME.your.host/assets/icon-64.png" />
+  <HighResolutionIconUrl DefaultValue="https://vanduren18.github.io/excel-ribbon-starter/assets/icon-64.png" />
 
   <Hosts>
     <Host Name="Workbook"/>
