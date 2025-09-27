@@ -3,7 +3,7 @@
            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
            xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
            xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
-           xsi:type="Contoso.OfficeAddin"
+           xsi:type="TaskPaneApp"
            Id="00000000-0000-0000-0000-000000000123"
            Version="1.0.0.0"
            ProviderName="JouwOrganisatie"
@@ -18,9 +18,10 @@
     <Host Name="Workbook"/>
   </Hosts>
 
+  <!-- (optioneel) Excel API vereiste -->
   <Requirements>
-    <Sets DefaultMinVersion="1.1">
-      <Set Name="SharedRuntime" MinVersion="1.1"/>
+    <Sets>
+      <Set Name="ExcelApi" MinVersion="1.1"/>
     </Sets>
   </Requirements>
 
@@ -30,97 +31,98 @@
 
   <Permissions>ReadWriteDocument</Permissions>
 
-  <VersionOverrides xsi:type="ov:VersionOverrides" Version="1.1">
-    <ov:Hosts>
-      <ov:Host xsi:type="ov:Workbook">
-        <ov:AllFormFactors>
-
-          <!-- Verwijst naar commands.html (laadt commands.js met de handlers) -->
-          <ov:FunctionFile resid="commandsHtml"/>
-
-          <ov:ExtensionPoint xsi:type="ov:PrimaryCommandSurface">
-            <ov:CustomTab id="Tab.CustomMijnRibbon">
-              <ov:Label resid="residTabLabel"/>
-              <ov:Group id="Group.Actions">
-                <ov:Label resid="residGroupLabel"/>
-                <ov:Icon>
+  <!-- Version Overrides for Ribbon Commands -->
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+                    xsi:type="VersionOverridesV1_1">
+    <Hosts>
+      <Host xsi:type="Workbook">
+        <AllFormFactors>
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <CustomTab id="Tab.CustomMijnRibbon">
+              <Label resid="residTabLabel"/>
+              <Group id="Group.Actions">
+                <Label resid="residGroupLabel"/>
+                <Icon>
                   <bt:Image size="16" resid="icon16"/>
                   <bt:Image size="32" resid="icon32"/>
                   <bt:Image size="80" resid="icon80"/>
-                </ov:Icon>
+                </Icon>
 
-                <ov:Control xsi:type="ov:Button" id="Btn.Connectie">
-                  <ov:Label resid="residConnectieLabel"/>
-                  <ov:Supertip>
-                    <ov:Title resid="residConnectieLabel"/>
-                    <ov:Description resid="residConnectieTip"/>
-                  </ov:Supertip>
-                  <ov:Icon>
+                <Control xsi:type="Button" id="Btn.Connectie">
+                  <Label resid="residConnectieLabel"/>
+                  <Supertip>
+                    <Title resid="residConnectieLabel"/>
+                    <Description resid="residConnectieTip"/>
+                  </Supertip>
+                  <Icon>
                     <bt:Image size="16" resid="icon16"/>
                     <bt:Image size="32" resid="icon32"/>
                     <bt:Image size="80" resid="icon80"/>
-                  </ov:Icon>
-                  <ov:Action xsi:type="ov:ExecuteFunction">
-                    <ov:FunctionName>onConnectie</ov:FunctionName>
-                  </ov:Action>
-                </ov:Control>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>onConnectie</FunctionName>
+                  </Action>
+                </Control>
 
-                <ov:Control xsi:type="ov:Button" id="Btn.Download">
-                  <ov:Label resid="residDownloadLabel"/>
-                  <ov:Supertip>
-                    <ov:Title resid="residDownloadLabel"/>
-                    <ov:Description resid="residDownloadTip"/>
-                  </ov:Supertip>
-                  <ov:Icon>
+                <Control xsi:type="Button" id="Btn.Download">
+                  <Label resid="residDownloadLabel"/>
+                  <Supertip>
+                    <Title resid="residDownloadLabel"/>
+                    <Description resid="residDownloadTip"/>
+                  </Supertip>
+                  <Icon>
                     <bt:Image size="16" resid="icon16"/>
                     <bt:Image size="32" resid="icon32"/>
                     <bt:Image size="80" resid="icon80"/>
-                  </ov:Icon>
-                  <ov:Action xsi:type="ov:ExecuteFunction">
-                    <ov:FunctionName>onDownload</ov:FunctionName>
-                  </ov:Action>
-                </ov:Control>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>onDownload</FunctionName>
+                  </Action>
+                </Control>
 
-                <ov:Control xsi:type="ov:Button" id="Btn.Functie">
-                  <ov:Label resid="residFunctieLabel"/>
-                  <ov:Supertip>
-                    <ov:Title resid="residFunctieLabel"/>
-                    <ov:Description resid="residFunctieTip"/>
-                  </ov:Supertip>
-                  <ov:Icon>
+                <Control xsi:type="Button" id="Btn.Functie">
+                  <Label resid="residFunctieLabel"/>
+                  <Supertip>
+                    <Title resid="residFunctieLabel"/>
+                    <Description resid="residFunctieTip"/>
+                  </Supertip>
+                  <Icon>
                     <bt:Image size="16" resid="icon16"/>
                     <bt:Image size="32" resid="icon32"/>
                     <bt:Image size="80" resid="icon80"/>
-                  </ov:Icon>
-                  <ov:Action xsi:type="ov:ExecuteFunction">
-                    <ov:FunctionName>onFunctie</ov:FunctionName>
-                  </ov:Action>
-                </ov:Control>
+                  </Icon>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>onFunctie</FunctionName>
+                  </Action>
+                </Control>
 
-                <ov:Control xsi:type="ov:Button" id="Btn.Help">
-                  <ov:Label resid="residHelpLabel"/>
-                  <ov:Supertip>
-                    <ov:Title resid="residHelpLabel"/>
-                    <ov:Description resid="residHelpTip"/>
-                  </ov:Supertip>
-                  <ov:Icon>
+                <Control xsi:type="Button" id="Btn.Help">
+                  <Label resid="residHelpLabel"/>
+                  <Supertip>
+                    <Title resid="residHelpLabel"/>
+                    <Description resid="residHelpTip"/>
+                  </Supertip>
+                  <Icon>
                     <bt:Image size="16" resid="icon16"/>
                     <bt:Image size="32" resid="icon32"/>
                     <bt:Image size="80" resid="icon80"/>
-                  </ov:Icon>
-                  <ov:Action xsi:type="ov:ShowTaskpane">
-                    <ov:SourceLocation resid="taskpaneUrl"/>
-                  </ov:Action>
-                </ov:Control>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="taskpaneUrl"/>
+                  </Action>
+                </Control>
 
-              </ov:Group>
-            </ov:CustomTab>
-          </ov:ExtensionPoint>
-        </ov:AllFormFactors>
-      </ov:Host>
-    </ov:Hosts>
+              </Group>
+            </CustomTab>
 
-    <ov:Resources>
+            <!-- BELANGRIJK: FunctionFile staat binnen de ExtensionPoint -->
+            <FunctionFile resid="commandsHtml"/>
+          </ExtensionPoint>
+        </AllFormFactors>
+      </Host>
+    </Hosts>
+
+    <Resources>
       <bt:Images>
         <bt:Image id="icon16" DefaultValue="https://vanduren18.github.io/excel-ribbon-starter/assets/icon-16.png"/>
         <bt:Image id="icon32" DefaultValue="https://vanduren18.github.io/excel-ribbon-starter/assets/icon-32.png"/>
@@ -147,6 +149,6 @@
         <bt:String id="residFunctieTip" DefaultValue="Voer een voorbeeldbewerking uit op de selectie."/>
         <bt:String id="residHelpTip" DefaultValue="Open het helpvenster met uitleg en links."/>
       </bt:LongStrings>
-    </ov:Resources>
+    </Resources>
   </VersionOverrides>
 </OfficeApp>
