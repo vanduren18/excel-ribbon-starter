@@ -4,7 +4,7 @@
            xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
            xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
            xsi:type="TaskPaneApp"
-           Id="00000000-0000-0000-0000-000000000123"
+           Id="2f9f9c7a-2a6f-4f0a-90e2-7b65a9f3a8f4"
            Version="1.0.0.0"
            ProviderName="JouwOrganisatie"
            DefaultLocale="nl-NL">
@@ -24,7 +24,7 @@
     </Sets>
   </Requirements>
 
-  <!-- Task pane pagina (voor de Help/host) -->
+  <!-- De ‘host’ pagina voor de add-in (task pane) -->
   <DefaultSettings>
     <SourceLocation DefaultValue="https://vanduren18.github.io/excel-ribbon-starter/taskpane.html"/>
   </DefaultSettings>
@@ -39,7 +39,7 @@
         <AllFormFactors>
           <ExtensionPoint xsi:type="PrimaryCommandSurface">
 
-            <!-- 1) FunctionFile MOET eerst -->
+            <!-- FunctionFile MOET als eerste -->
             <FunctionFile resid="commandsHtml"/>
 
             <CustomTab id="Tab.CustomMijnRibbon">
@@ -115,6 +115,7 @@
                     <SourceLocation resid="taskpaneUrl"/>
                   </Action>
                 </Control>
+
               </Group>
             </CustomTab>
           </ExtensionPoint>
@@ -143,4 +144,9 @@
       <bt:LongStrings>
         <bt:String id="residConnectieTip" DefaultValue="Maak of test een connectie (voorbeeld: API, database)."/>
         <bt:String id="residDownloadTip" DefaultValue="Haal demo-data op en plaats in het werkblad."/>
-        <bt:String id="residFunctieTip" Default
+        <bt:String id="residFunctieTip" DefaultValue="Voer een voorbeeldbewerking uit op de selectie."/>
+        <bt:String id="residHelpTip" DefaultValue="Open het helpvenster met uitleg en links."/>
+      </bt:LongStrings>
+    </Resources>
+  </VersionOverrides>
+</OfficeApp>
